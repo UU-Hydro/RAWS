@@ -1,0 +1,12 @@
+# Test case domains. 
+# Per test case:
+#   outlet   [lon, lat] of the basin mouth (required). Approximate is fine.
+#   search   [west, east, south, north] window the delineation runs in (default:
+#            outlet +/- 5 deg). Must contain the whole basin.
+
+
+# Tugela (Thukela), KwaZulu-Natal, South Africa: drains the Drakensberg
+# escarpment east into the Indian Ocean, ~29,000 km2.
+tugela:
+  outlet: [31.4583, -29.2083]
+  search: [26.0, 34.0, -33.0, -25.0]
