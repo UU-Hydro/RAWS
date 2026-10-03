@@ -133,9 +133,43 @@ forcing:
 
   land_surface:
 
+    topography:
+
+      parameters:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/topography/topography_parameters_30_arcmin_october_2015.nc
+        dst: topography_parameters_30min.nc
+        ini_key: topographyNC
+
+    soil:
+
+      properties:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/soil/soilProperties.nc
+        dst: soilProperties30ArcMin.nc
+        ini_key: soilPropertiesNC
+
     land_cover:
 
       natural_tall:
+
+        crop_coefficient:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalTall/Global_CropCoefficientKc-Forest_30min.nc
+          dst: crop_coefficient.nc
+          ini_key: cropCoefficientNC
+
+        intercept_cap:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalTall/interceptCapInputForest366days.nc
+          dst: intercept_cap.nc
+          ini_key: interceptCapNC
+
+        cover_fraction:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalTall/coverFractionInputForest366days.nc
+          dst: cover_fraction.nc
+          ini_key: coverFractionNC
+
+        properties:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalTall/forestProperties.nc
+          dst: land_cover_properties.nc
+          ini_key: landCoverMapsNC
 
         min_soil_depth_frac:
           src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalTall/minf_tall_permafrost.nc
@@ -149,6 +183,26 @@ forcing:
 
       natural_short:
 
+        crop_coefficient:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalShort/Global_CropCoefficientKc-Grassland_30min.nc
+          dst: crop_coefficient.nc
+          ini_key: cropCoefficientNC
+
+        intercept_cap:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalShort/interceptCapInputGrassland366days.nc
+          dst: intercept_cap.nc
+          ini_key: interceptCapNC
+
+        cover_fraction:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalShort/coverFractionInputGrassland366days.nc
+          dst: cover_fraction.nc
+          ini_key: coverFractionNC
+
+        properties:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalShort/grasslandProperties.nc
+          dst: land_cover_properties.nc
+          ini_key: landCoverMapsNC
+
         min_soil_depth_frac:
           src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/naturalShort/minf_short_permafrost.nc
           dst: min_soil_depth_frac.nc
@@ -160,6 +214,11 @@ forcing:
           ini_key: maxSoilDepthFrac
 
       irr_paddy:
+
+        properties:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/irrPaddy/paddyProperties.nc
+          dst: land_cover_properties.nc
+          ini_key: landCoverMapsNC
 
         crop_coefficient:
           src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/irrPaddy/Global_CropCoefficientKc-IrrPaddy_30min.nc
@@ -188,6 +247,11 @@ forcing:
 
       irr_non_paddy:
 
+        properties:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/irrNonPaddy/nonPaddyProperties.nc
+          dst: land_cover_properties.nc
+          ini_key: landCoverMapsNC
+
         crop_coefficient:
           src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/landSurface/landCover/irrNonPaddy/Global_CropCoefficientKc-IrrNonPaddy_30min.nc
           dst: crop_coefficient.nc
@@ -213,14 +277,146 @@ forcing:
           dst: max_soil_depth_frac.nc
           ini_key: maxSoilDepthFrac
 
+  groundwater:
+
+    properties:
+
+      parameters:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/groundwater/properties/groundwaterProperties.nc
+        dst: groundwaterProperties.nc
+        ini_key: groundwaterPropertiesNC
+
+    aquifer_thickness:
+
+      estimate:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/groundwater/aquifer_thickness_estimate/thickness_30min.nc
+        dst: aquifer_thickness_30min.nc
+        ini_key: estimateOfTotalGroundwaterThickness
+
   routing:
+
+    ldd:
+      src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/ldd_and_cell_area/lddsound_30min.map
+      dst: lddsound_30min.map
+      ini_key: lddMap
+
+    water_bodies:
+      src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/surface_water_bodies/waterBodies30min.nc
+      dst: waterBodies30min.nc
+      ini_key: waterBodyInputNC
+
+    cell_area:
+      src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/ldd_and_cell_area/cellarea30min.nc
+      dst: cell_area_30min.nc
+      ini_key: cellAreaMap
 
     kc_open_water:
       src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/kc_surface_water/cropCoefficientForOpenWater.nc
       dst: kc_open_water.nc
       ini_key: cropCoefficientWaterNC
 
+    channel:
+
+      gradient:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/channel_gradient.nc
+        dst: gradient.nc
+        ini_key: gradient
+
+      bankfull_depth:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/bankfull_depth.nc
+        dst: bankfull_depth.nc
+        ini_key: constantChannelDepth
+
+      bankfull_width:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/bankfull_width.nc
+        dst: bankfull_width.nc
+        ini_key: constantChannelWidth, minimumChannelWidth
+
+      relative_elevation:
+
+        dzRel0000:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0000.nc
+          dst: dzRel0000.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0001:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0001.nc
+          dst: dzRel0001.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0005:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0005.nc
+          dst: dzRel0005.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0010:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0010.nc
+          dst: dzRel0010.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0020:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0020.nc
+          dst: dzRel0020.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0030:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0030.nc
+          dst: dzRel0030.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0040:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0040.nc
+          dst: dzRel0040.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0050:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0050.nc
+          dst: dzRel0050.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0060:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0060.nc
+          dst: dzRel0060.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0070:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0070.nc
+          dst: dzRel0070.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0080:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0080.nc
+          dst: dzRel0080.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0090:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0090.nc
+          dst: dzRel0090.nc
+          ini_key: relativeElevationFiles
+
+        dzRel0100:
+          src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/routing/channel_properties/dzRel0100.nc
+          dst: dzRel0100.nc
+          ini_key: relativeElevationFiles
+
   water_use:
+
+    demand:
+
+      domestic:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/waterDemand/domestic_water_demand_version_october_2014.nc
+        dst: domestic.nc
+        ini_key: domesticWaterDemandFile
+
+      industry:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/waterDemand/industrial_water_demand_version_october_2014.nc
+        dst: industry.nc
+        ini_key: industryWaterDemandFile
+
+      livestock:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/waterDemand/livestock_water_demand_1960-2012.nc
+        dst: livestock.nc
+        ini_key: livestockWaterDemandFile
 
     irrigation:
 
@@ -228,6 +424,33 @@ forcing:
         src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/irrigation/irrigation_efficiency/efficiency.nc
         dst: efficiency.nc
         ini_key: irrigationEfficiency
+
+      area_historical:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/irrigation/irrigated_areas/irrigationArea30ArcMin.nc
+        dst: irrigation_area_30min.nc
+        ini_key: historicalIrrigationArea
+
+      surface_water_fraction:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/source_partitioning/surface_water_fraction_for_irrigation/AEI_SWFRAC.nc
+        dst: surface_water_fraction.nc
+        ini_key: irrigationSurfaceWaterAbstractionFractionData
+
+      surface_water_fraction_quality:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/source_partitioning/surface_water_fraction_for_irrigation/AEI_QUAL.nc
+        dst: surface_water_fraction_quality.nc
+        ini_key: irrigationSurfaceWaterAbstractionFractionDataQuality
+
+    abstraction_zones:
+
+      groundwater_30min:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/abstraction_zones/abstraction_zones_30min_30min.nc
+        dst: abstraction_zones_30min_30min.nc
+        ini_key: allocationSegmentsForGroundwater
+
+      ground_surface_water_60min:
+        src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/abstraction_zones/abstraction_zones_60min_30min.nc
+        dst: abstraction_zones_60min_30min.nc
+        ini_key: allocationSegmentsForGroundSurfaceWater
 
     pumping_capacity:
       src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/groundwater_pumping_capacity/regional_abstraction_limit.nc
@@ -238,6 +461,11 @@ forcing:
       src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/source_partitioning/surface_water_fraction_for_non_irrigation/max_city_sw_fraction.nc
       dst: non_irrigation_surface_water_fraction_max.nc
       ini_key: maximumNonIrrigationSurfaceWaterAbstractionFractionData
+
+    desalination:
+      src: /scratch/depfg/sutan101/data/pcrglobwb_input_arise/develop/global_30min_from_gmd_paper_input/waterUse/desalination/desalination_water_use_version_october_2014.nc
+      dst: desalination.nc
+      ini_key: desalinationWater
 
 5arcminutes:
 
